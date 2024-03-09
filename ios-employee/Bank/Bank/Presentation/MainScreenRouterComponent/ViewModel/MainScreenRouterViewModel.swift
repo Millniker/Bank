@@ -17,6 +17,22 @@ final class MainScreenRouterViewModel: BaseViewModel {
     }
 
     private func initRoutes() {
-        routes = .init()
+        routes = [
+            .init(
+                name: R.string.localizable.accountsManagement(),
+                description: R.string.localizable.overviewAndTransactionsHistories(),
+                systemImageName: "list.bullet.rectangle"
+            ),
+            .init(
+                name: R.string.localizable.creditsManagement(),
+                description: R.string.localizable.creationAndOverview(),
+                systemImageName: "creditcard"
+            ),
+            .init(
+                name: R.string.localizable.employeesManagement(),
+                description: R.string.localizable.creationAndDeletion(),
+                systemImageName: "person.3"
+            )
+        ]
     }
 }

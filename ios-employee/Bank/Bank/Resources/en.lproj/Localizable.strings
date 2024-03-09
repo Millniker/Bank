@@ -16,3 +16,22 @@
 "register" = "Register";
 "passwordConfirmation" = "Password confirmation";
 "email" = "Email";
+
+
+// MARK: - Main screen router
+"accountsManagement" = "Accounts management";
+"overviewAndTransactionsHistories" = "Overview and transactions histories";
+
+"creditsManagement" = "Credits management";
+"creationAndOverview" = "Creation and overview";
+
+"employeesManagement" = "Employees management";
+"creationAndDeletion" = "Creation and deletion";
+
+// MARK: - Credits router
+"createCredit" = "Create credit";
+"overviewCredits" = "Overview credits";
+
+// MARK: - Employees router
+"createEmployee" = "Create employee";
+"deleteEmployee" = "Delete employee";

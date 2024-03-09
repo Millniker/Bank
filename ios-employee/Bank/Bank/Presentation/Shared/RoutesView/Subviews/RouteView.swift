@@ -27,7 +27,9 @@ struct RouteView: View {
             Spacer()
 
             Image(systemName: route.systemImageName)
-                .font(.system(size: 50))
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30, height: 30)
                 .foregroundColor(.black)
         }
         .padding()
@@ -37,13 +39,13 @@ struct RouteView: View {
     private var textsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(route.name)
-                .font(.title)
+                .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.black)
 
             if let description = route.description {
                 Text(description)
-                    .font(.title3)
+                    .font(.footnote)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
             }

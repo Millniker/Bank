@@ -11,6 +11,7 @@ struct MainView: View {
     @Bindable var viewModel: MainViewModel
 
     var body: some View {
+        viewModel.mainScreenRouterView
     }
 }
 

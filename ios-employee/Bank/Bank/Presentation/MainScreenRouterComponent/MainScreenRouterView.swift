@@ -11,7 +11,9 @@ struct MainScreenRouterView: View {
     @Bindable var viewModel: MainScreenRouterViewModel
 
     var body: some View {
-        RoutesView(routes: viewModel.routes)
+        NavigationStack {
+            RoutesView(routes: viewModel.routes)
+        }
     }
 }
 
