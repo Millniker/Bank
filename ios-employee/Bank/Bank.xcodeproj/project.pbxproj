@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30F97D782B9C1F2C002738D8 /* BankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97D772B9C1F2C002738D8 /* BankApp.swift */; };
+		30F97D7C2B9C1F2D002738D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F97D7B2B9C1F2D002738D8 /* Assets.xcassets */; };
+		30F97D7F2B9C1F2D002738D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F97D7E2B9C1F2D002738D8 /* Preview Assets.xcassets */; };
+		30F97D872B9C2675002738D8 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 30F97D862B9C2675002738D8 /* RswiftLibrary */; };
+		30F97D8B2B9C268B002738D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30F97D892B9C268B002738D8 /* Localizable.strings */; };
+		30F97D912B9C2723002738D8 /* NeedleFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 30F97D902B9C2723002738D8 /* NeedleFoundation */; };
+		30F97D982B9C27FD002738D8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97D972B9C27FD002738D8 /* MainView.swift */; };
+		30F97D9B2B9C2829002738D8 /* MainComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97D9A2B9C2829002738D8 /* MainComponent.swift */; };
+		30F97D9E2B9C2836002738D8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97D9D2B9C2836002738D8 /* MainViewModel.swift */; };
+		30F97DA12B9C28AE002738D8 /* NeedleGenerated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97DA02B9C28AE002738D8 /* NeedleGenerated.swift */; };
+		30F97DA62B9C2909002738D8 /* Rswift+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97DA52B9C2909002738D8 /* Rswift+SwiftUI.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30F97D742B9C1F2C002738D8 /* Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bank.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F97D772B9C1F2C002738D8 /* BankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankApp.swift; sourceTree = "<group>"; };
+		30F97D7B2B9C1F2D002738D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30F97D7E2B9C1F2D002738D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		30F97D8A2B9C268B002738D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		30F97D972B9C27FD002738D8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		30F97D9A2B9C2829002738D8 /* MainComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainComponent.swift; sourceTree = "<group>"; };
+		30F97D9D2B9C2836002738D8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		30F97DA02B9C28AE002738D8 /* NeedleGenerated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedleGenerated.swift; sourceTree = "<group>"; };
+		30F97DA52B9C2909002738D8 /* Rswift+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rswift+SwiftUI.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30F97D712B9C1F2C002738D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F97D912B9C2723002738D8 /* NeedleFoundation in Frameworks */,
+				30F97D872B9C2675002738D8 /* RswiftLibrary in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30F97D6B2B9C1F2C002738D8 = {
+			isa = PBXGroup;
+			children = (
+				30F97D762B9C1F2C002738D8 /* Bank */,
+				30F97D752B9C1F2C002738D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30F97D752B9C1F2C002738D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D742B9C1F2C002738D8 /* Bank.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30F97D762B9C1F2C002738D8 /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+				30F97DA22B9C28DF002738D8 /* Domain */,
+				30F97D952B9C27A1002738D8 /* Presentation */,
+				30F97D882B9C267E002738D8 /* Resources */,
+				30F97D772B9C1F2C002738D8 /* BankApp.swift */,
+				30F97DA02B9C28AE002738D8 /* NeedleGenerated.swift */,
+				30F97D7B2B9C1F2D002738D8 /* Assets.xcassets */,
+				30F97D7D2B9C1F2D002738D8 /* Preview Content */,
+			);
+			path = Bank;
+			sourceTree = "<group>";
+		};
+		30F97D7D2B9C1F2D002738D8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D7E2B9C1F2D002738D8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		30F97D882B9C267E002738D8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D892B9C268B002738D8 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		30F97D952B9C27A1002738D8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D962B9C27A8002738D8 /* MainComponent */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		30F97D962B9C27A8002738D8 /* MainComponent */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D992B9C281B002738D8 /* Component */,
+				30F97D9C2B9C282D002738D8 /* ViewModel */,
+				30F97D972B9C27FD002738D8 /* MainView.swift */,
+			);
+			path = MainComponent;
+			sourceTree = "<group>";
+		};
+		30F97D992B9C281B002738D8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D9A2B9C2829002738D8 /* MainComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		30F97D9C2B9C282D002738D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30F97D9D2B9C2836002738D8 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30F97DA22B9C28DF002738D8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				30F97DA32B9C28E4002738D8 /* Extensions */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		30F97DA32B9C28E4002738D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				30F97DA42B9C28EC002738D8 /* Presentation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		30F97DA42B9C28EC002738D8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				30F97DA52B9C2909002738D8 /* Rswift+SwiftUI.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30F97D732B9C1F2C002738D8 /* Bank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F97D822B9C1F2D002738D8 /* Build configuration list for PBXNativeTarget "Bank" */;
+			buildPhases = (
+				30F97D922B9C2749002738D8 /* Needle */,
+				30F97D702B9C1F2C002738D8 /* Sources */,
+				30F97D712B9C1F2C002738D8 /* Frameworks */,
+				30F97D722B9C1F2C002738D8 /* Resources */,
+				30F97D932B9C276B002738D8 /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30F97D8D2B9C26DF002738D8 /* PBXTargetDependency */,
+			);
+			name = Bank;
+			packageProductDependencies = (
+				30F97D862B9C2675002738D8 /* RswiftLibrary */,
+				30F97D902B9C2723002738D8 /* NeedleFoundation */,
+			);
+			productName = Bank;
+			productReference = 30F97D742B9C1F2C002738D8 /* Bank.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30F97D6C2B9C1F2C002738D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					30F97D732B9C1F2C002738D8 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 30F97D6F2B9C1F2C002738D8 /* Build configuration list for PBXProject "Bank" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30F97D6B2B9C1F2C002738D8;
+			packageReferences = (
+				30F97D852B9C2675002738D8 /* XCRemoteSwiftPackageReference "R.swift" */,
+				30F97D8F2B9C2723002738D8 /* XCRemoteSwiftPackageReference "needle" */,
+			);
+			productRefGroup = 30F97D752B9C1F2C002738D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30F97D732B9C1F2C002738D8 /* Bank */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30F97D722B9C1F2C002738D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F97D7F2B9C1F2D002738D8 /* Preview Assets.xcassets in Resources */,
+				30F97D8B2B9C268B002738D8 /* Localizable.strings in Resources */,
+				30F97D7C2B9C1F2D002738D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30F97D922B9C2749002738D8 /* Needle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Needle;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which needle; then\n    SOURCEKIT_LOGGING=0 && needle generate $SRCROOT/$TARGETNAME/NeedleGenerated.swift $SRCROOT/$TARGETNAME\nelse\n  echo \"warning: Needle not installed, download from https://github.com/uber/needle using Homebrew\"\nfi\n";
+		};
+		30F97D932B9C276B002738D8 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30F97D702B9C1F2C002738D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F97D782B9C1F2C002738D8 /* BankApp.swift in Sources */,
+				30F97D982B9C27FD002738D8 /* MainView.swift in Sources */,
+				30F97D9B2B9C2829002738D8 /* MainComponent.swift in Sources */,
+				30F97D9E2B9C2836002738D8 /* MainViewModel.swift in Sources */,
+				30F97DA62B9C2909002738D8 /* Rswift+SwiftUI.swift in Sources */,
+				30F97DA12B9C28AE002738D8 /* NeedleGenerated.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30F97D8D2B9C26DF002738D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30F97D8C2B9C26DF002738D8 /* RswiftGenerateInternalResources */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30F97D892B9C268B002738D8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30F97D8A2B9C268B002738D8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30F97D802B9C1F2D002738D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30F97D812B9C1F2D002738D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30F97D832B9C1F2D002738D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bank/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.Bank";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		30F97D842B9C1F2D002738D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Bank/Preview Content\"";
+				DEVELOPMENT_TEAM = 892KGV2B93;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.delet-dis.Bank";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30F97D6F2B9C1F2C002738D8 /* Build configuration list for PBXProject "Bank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F97D802B9C1F2D002738D8 /* Debug */,
+				30F97D812B9C1F2D002738D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30F97D822B9C1F2D002738D8 /* Build configuration list for PBXNativeTarget "Bank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F97D832B9C1F2D002738D8 /* Debug */,
+				30F97D842B9C1F2D002738D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30F97D852B9C2675002738D8 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.5.0;
+			};
+		};
+		30F97D8F2B9C2723002738D8 /* XCRemoteSwiftPackageReference "needle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uber/needle.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30F97D862B9C2675002738D8 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30F97D852B9C2675002738D8 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = RswiftLibrary;
+		};
+		30F97D8C2B9C26DF002738D8 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30F97D852B9C2675002738D8 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		30F97D902B9C2723002738D8 /* NeedleFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30F97D8F2B9C2723002738D8 /* XCRemoteSwiftPackageReference "needle" */;
+			productName = NeedleFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 30F97D6C2B9C1F2C002738D8 /* Project object */;
+}
