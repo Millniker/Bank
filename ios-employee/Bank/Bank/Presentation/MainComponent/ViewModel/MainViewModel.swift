@@ -7,4 +7,18 @@
 
 import Foundation
 
-final class MainViewModel: ObservableObject {}
+final class MainViewModel: BaseViewModel {
+    private(set) var mainScreenRouterView: MainScreenRouterView?
+
+    init(mainScreenRouterComponent: MainScreenRouterComponent? = nil) {
+        super.init()
+
+        initViews(mainScreenRouterComponent: mainScreenRouterComponent)
+    }
+
+    private func initViews(mainScreenRouterComponent: MainScreenRouterComponent? = nil) {
+        if let mainScreenRouterComponent {
+            mainScreenRouterView = mainScreenRouterComponent.getView()
+        }
+    }
+}

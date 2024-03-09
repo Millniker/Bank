@@ -5,3 +5,14 @@
   Created by Igor Efimov on 09.03.2024.
   
 */
+"bank" = "Bank";
+
+// MARK: - Authentication
+"username" = "Username";
+"password" = "Password";
+"logIn" = "Log in";
+
+// MARK: - Registration
+"register" = "Register";
+"passwordConfirmation" = "Password confirmation";
+"email" = "Email";
