@@ -30,7 +30,7 @@
 "creationAndOverview" = "Creation and overview";
 
 "employeesManagement" = "Employees management";
-"creationAndDeletion" = "Creation and deletion";
+"creationAndBlocking" = "Creation and blocking";
 
 // MARK: - Credits router
 "createCredit" = "Create credit";
@@ -58,3 +58,21 @@
 "loanRepayment" = "Loan repayment";
 
 "transactions" = "Transactions";
+
+// MARK: - Credits
+"createCreditTerms" = "Create credit terms";
+
+"overviewLoans" = "Overview loans";
+"byUser" = "By user";
+
+"maxMoney" = "Max money";
+"minMoney" = "Min money";
+
+"maxInterestRate" = "Max interest rate";
+"minInterestRate" = "Min interest rate";
+
+"term" = "Term";
+
+"name" = "Name";
+
+"currency" = "Currency";

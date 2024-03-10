@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		300C8AD92B9C39E100D50DAE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300C8AD82B9C39E100D50DAE /* BaseViewModel.swift */; };
+		302FF5432B9E07A0005783EF /* CustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302FF5422B9E07A0005783EF /* CustomerView.swift */; };
 		30C5697D2B9C3B10007B679D /* MainScreenRouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C5697C2B9C3B10007B679D /* MainScreenRouterView.swift */; };
 		30C569852B9C3B72007B679D /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C569842B9C3B72007B679D /* RouteView.swift */; };
 		30C569872B9C3B86007B679D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C569862B9C3B86007B679D /* Route.swift */; };
@@ -38,6 +39,18 @@
 		30C569EB2B9D9E4E007B679D /* TransactionsManagementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C569EA2B9D9E4E007B679D /* TransactionsManagementComponent.swift */; };
 		30C569ED2B9D9EB4007B679D /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C569EC2B9D9EB4007B679D /* TransactionView.swift */; };
 		30C569F12B9DCB39007B679D /* StringProtocol+FirstUppercased.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C569F02B9DCB39007B679D /* StringProtocol+FirstUppercased.swift */; };
+		30C56A012B9DD50E007B679D /* DisplayingCreditTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A002B9DD50E007B679D /* DisplayingCreditTerms.swift */; };
+		30C56A032B9DD541007B679D /* DisplayingMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A022B9DD541007B679D /* DisplayingMoney.swift */; };
+		30C56A052B9DD56B007B679D /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A042B9DD56B007B679D /* Money.swift */; };
+		30C56A072B9DD66E007B679D /* CreditTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A062B9DD66E007B679D /* CreditTerms.swift */; };
+		30C56A0C2B9DD7F1007B679D /* CreditTermsCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A0B2B9DD7F1007B679D /* CreditTermsCreationView.swift */; };
+		30C56A102B9DD8F8007B679D /* CreditTermsCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A0F2B9DD8F8007B679D /* CreditTermsCreationViewModel.swift */; };
+		30C56A122B9DD905007B679D /* CreditTermsCreationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A112B9DD905007B679D /* CreditTermsCreationComponent.swift */; };
+		30C56A152B9DDEC0007B679D /* LoansOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A142B9DDEC0007B679D /* LoansOverviewView.swift */; };
+		30C56A192B9DDED5007B679D /* LoansOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A182B9DDED5007B679D /* LoansOverviewViewModel.swift */; };
+		30C56A1C2B9DDF6E007B679D /* LoansOverviewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C56A1B2B9DDF6E007B679D /* LoansOverviewComponent.swift */; };
+		30D749C62B9E062300901CC7 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D749C52B9E062300901CC7 /* Customer.swift */; };
+		30D749C82B9E066A00901CC7 /* DisplayingCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D749C72B9E066A00901CC7 /* DisplayingCustomer.swift */; };
 		30F97D782B9C1F2C002738D8 /* BankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F97D772B9C1F2C002738D8 /* BankApp.swift */; };
 		30F97D7C2B9C1F2D002738D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F97D7B2B9C1F2D002738D8 /* Assets.xcassets */; };
 		30F97D7F2B9C1F2D002738D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F97D7E2B9C1F2D002738D8 /* Preview Assets.xcassets */; };
@@ -64,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		300C8AD82B9C39E100D50DAE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		302FF5422B9E07A0005783EF /* CustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerView.swift; sourceTree = "<group>"; };
 		30C5697C2B9C3B10007B679D /* MainScreenRouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouterView.swift; sourceTree = "<group>"; };
 		30C569842B9C3B72007B679D /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 		30C569862B9C3B86007B679D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -94,6 +108,18 @@
 		30C569EA2B9D9E4E007B679D /* TransactionsManagementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsManagementComponent.swift; sourceTree = "<group>"; };
 		30C569EC2B9D9EB4007B679D /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		30C569F02B9DCB39007B679D /* StringProtocol+FirstUppercased.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+FirstUppercased.swift"; sourceTree = "<group>"; };
+		30C56A002B9DD50E007B679D /* DisplayingCreditTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingCreditTerms.swift; sourceTree = "<group>"; };
+		30C56A022B9DD541007B679D /* DisplayingMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingMoney.swift; sourceTree = "<group>"; };
+		30C56A042B9DD56B007B679D /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		30C56A062B9DD66E007B679D /* CreditTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTerms.swift; sourceTree = "<group>"; };
+		30C56A0B2B9DD7F1007B679D /* CreditTermsCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTermsCreationView.swift; sourceTree = "<group>"; };
+		30C56A0F2B9DD8F8007B679D /* CreditTermsCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTermsCreationViewModel.swift; sourceTree = "<group>"; };
+		30C56A112B9DD905007B679D /* CreditTermsCreationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTermsCreationComponent.swift; sourceTree = "<group>"; };
+		30C56A142B9DDEC0007B679D /* LoansOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansOverviewView.swift; sourceTree = "<group>"; };
+		30C56A182B9DDED5007B679D /* LoansOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansOverviewViewModel.swift; sourceTree = "<group>"; };
+		30C56A1B2B9DDF6E007B679D /* LoansOverviewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansOverviewComponent.swift; sourceTree = "<group>"; };
+		30D749C52B9E062300901CC7 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		30D749C72B9E066A00901CC7 /* DisplayingCustomer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayingCustomer.swift; sourceTree = "<group>"; };
 		30F97D742B9C1F2C002738D8 /* Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F97D772B9C1F2C002738D8 /* BankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankApp.swift; sourceTree = "<group>"; };
 		30F97D7B2B9C1F2D002738D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +156,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		302FF53F2B9E0786005783EF /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				302FF5422B9E07A0005783EF /* CustomerView.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		30C5697B2B9C3AF5007B679D /* MainScreenRouterComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +294,9 @@
 				30C569C52B9D84E2007B679D /* Enums */,
 				30C569D32B9D94D9007B679D /* Account.swift */,
 				30C569DC2B9D9A10007B679D /* Transaction.swift */,
+				30C56A042B9DD56B007B679D /* Money.swift */,
+				30C56A062B9DD66E007B679D /* CreditTerms.swift */,
+				30D749C52B9E062300901CC7 /* Customer.swift */,
 			);
 			path = Netowrking;
 			sourceTree = "<group>";
@@ -282,6 +319,9 @@
 				30C569BE2B9D7D12007B679D /* Enums */,
 				30C569D52B9D95B5007B679D /* DisplayingAccount.swift */,
 				30C569DE2B9D9BB4007B679D /* DisplayingTransaction.swift */,
+				30C56A022B9DD541007B679D /* DisplayingMoney.swift */,
+				30C56A002B9DD50E007B679D /* DisplayingCreditTerms.swift */,
+				30D749C72B9E066A00901CC7 /* DisplayingCustomer.swift */,
 			);
 			path = Displaying;
 			sourceTree = "<group>";
@@ -318,6 +358,59 @@
 				30C569F02B9DCB39007B679D /* StringProtocol+FirstUppercased.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		30C56A082B9DD766007B679D /* CreditTermsCreationComponent */ = {
+			isa = PBXGroup;
+			children = (
+				30C56A0E2B9DD8EB007B679D /* Component */,
+				30C56A0D2B9DD8E7007B679D /* ViewModel */,
+				30C56A0B2B9DD7F1007B679D /* CreditTermsCreationView.swift */,
+			);
+			path = CreditTermsCreationComponent;
+			sourceTree = "<group>";
+		};
+		30C56A0D2B9DD8E7007B679D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30C56A0F2B9DD8F8007B679D /* CreditTermsCreationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30C56A0E2B9DD8EB007B679D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				30C56A112B9DD905007B679D /* CreditTermsCreationComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		30C56A132B9DDEA5007B679D /* LoansOverviewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				302FF53F2B9E0786005783EF /* Subviews */,
+				30C56A1A2B9DDF60007B679D /* Component */,
+				30C56A172B9DDEC8007B679D /* ViewModel */,
+				30C56A142B9DDEC0007B679D /* LoansOverviewView.swift */,
+			);
+			path = LoansOverviewComponent;
+			sourceTree = "<group>";
+		};
+		30C56A172B9DDEC8007B679D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30C56A182B9DDED5007B679D /* LoansOverviewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		30C56A1A2B9DDF60007B679D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				30C56A1B2B9DDF6E007B679D /* LoansOverviewComponent.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		30F97D6B2B9C1F2C002738D8 = {
@@ -371,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				30F97DC32B9C34E8002738D8 /* Shared */,
+				30C56A132B9DDEA5007B679D /* LoansOverviewComponent */,
+				30C56A082B9DD766007B679D /* CreditTermsCreationComponent */,
 				30C569E12B9D9DF2007B679D /* TransactionsManagementComponent */,
 				30C5699A2B9D79CD007B679D /* AccountsManagementComponent */,
 				30C5697B2B9C3AF5007B679D /* MainScreenRouterComponent */,
@@ -632,19 +727,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30C56A012B9DD50E007B679D /* DisplayingCreditTerms.swift in Sources */,
+				30C56A1C2B9DDF6E007B679D /* LoansOverviewComponent.swift in Sources */,
 				30C569E32B9D9E12007B679D /* TransactionsManagementView.swift in Sources */,
 				30C569F12B9DCB39007B679D /* StringProtocol+FirstUppercased.swift in Sources */,
 				30C569ED2B9D9EB4007B679D /* TransactionView.swift in Sources */,
+				30C56A152B9DDEC0007B679D /* LoansOverviewView.swift in Sources */,
 				30F97DCF2B9C35A6002738D8 /* RegistrationView.swift in Sources */,
 				30C569D62B9D95B5007B679D /* DisplayingAccount.swift in Sources */,
 				30C569872B9C3B86007B679D /* Route.swift in Sources */,
 				30C569DB2B9D98C4007B679D /* DisplayingTransactionType.swift in Sources */,
 				30C569C22B9D7D80007B679D /* DisplayingAccountStatus.swift in Sources */,
+				30C56A032B9DD541007B679D /* DisplayingMoney.swift in Sources */,
+				30C56A0C2B9DD7F1007B679D /* CreditTermsCreationView.swift in Sources */,
 				30C569AD2B9D7A57007B679D /* AccountsManagementComponent.swift in Sources */,
+				30C56A072B9DD66E007B679D /* CreditTerms.swift in Sources */,
+				30C56A122B9DD905007B679D /* CreditTermsCreationComponent.swift in Sources */,
 				30C569C92B9D851C007B679D /* AccountStatus.swift in Sources */,
+				30D749C82B9E066A00901CC7 /* DisplayingCustomer.swift in Sources */,
 				30C569CD2B9D85DF007B679D /* DisplayingCurrencyType.swift in Sources */,
 				30C569C02B9D7D1E007B679D /* DisplayingAccountType.swift in Sources */,
+				30C56A052B9DD56B007B679D /* Money.swift in Sources */,
 				30F97DD52B9C35D3002738D8 /* RegistrationComponent.swift in Sources */,
+				30C56A102B9DD8F8007B679D /* CreditTermsCreationViewModel.swift in Sources */,
 				30C569A22B9D7A0D007B679D /* AccountsManagementView.swift in Sources */,
 				30F97DD32B9C35CA002738D8 /* RegistrationViewModel.swift in Sources */,
 				30C569852B9C3B72007B679D /* RouteView.swift in Sources */,
@@ -674,8 +779,11 @@
 				30F97DA62B9C2909002738D8 /* Rswift+SwiftUI.swift in Sources */,
 				30F97DA12B9C28AE002738D8 /* NeedleGenerated.swift in Sources */,
 				30C569892B9C3C5E007B679D /* RoutesView.swift in Sources */,
+				30D749C62B9E062300901CC7 /* Customer.swift in Sources */,
+				302FF5432B9E07A0005783EF /* CustomerView.swift in Sources */,
 				30C569982B9C409B007B679D /* MainScreenRouterComponent.swift in Sources */,
 				30C569E92B9D9E43007B679D /* TransactionsManagementViewModel.swift in Sources */,
+				30C56A192B9DDED5007B679D /* LoansOverviewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

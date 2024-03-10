@@ -57,4 +57,16 @@ extension MainComponent {
             TransactionsManagementComponent(parent: self)
         }
     }
+
+    var creditTermsCreationComponent: CreditTermsCreationComponent {
+        shared {
+            CreditTermsCreationComponent(parent: self)
+        }
+    }
+
+    var loansOverviewComponent: LoansOverviewComponent {
+        shared {
+            LoansOverviewComponent(parent: self)
+        }
+    }
 }

@@ -9,6 +9,7 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
+// swiftlint:disable:next type_name
 protocol TransactionsManagementComponentDependency: Dependency {}
 
 final class TransactionsManagementComponent: Component<TransactionsManagementComponentDependency> {

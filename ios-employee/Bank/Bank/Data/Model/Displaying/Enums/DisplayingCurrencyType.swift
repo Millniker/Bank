@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DisplayingCurrencyType: String {
+enum DisplayingCurrencyType: String, CaseIterable {
     case usd
     case eur
     case rub
@@ -15,11 +15,22 @@ enum DisplayingCurrencyType: String {
     var rawValue: String {
         switch self {
         case .usd:
-            return "$"
+            "$"
         case .eur:
-            return "€"
+            "€"
         case .rub:
-            return "₽"
+            "₽"
+        }
+    }
+
+    var asCurrencyType: CurrencyType {
+        switch self {
+        case .usd:
+            .USD
+        case .eur:
+            .EUR
+        case .rub:
+            .RUB
         }
     }
 }

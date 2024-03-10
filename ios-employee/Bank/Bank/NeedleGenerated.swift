@@ -21,6 +21,12 @@ private class MainScreenRouterComponentDependencyd1934decc02019116c04Provider: M
     var accountsManagementComponent: AccountsManagementComponent {
         return mainComponent.accountsManagementComponent
     }
+    var creditTermsCreationComponent: CreditTermsCreationComponent {
+        return mainComponent.creditTermsCreationComponent
+    }
+    var loansOverviewComponent: LoansOverviewComponent {
+        return mainComponent.loansOverviewComponent
+    }
     private let mainComponent: MainComponent
     init(mainComponent: MainComponent) {
         self.mainComponent = mainComponent
@@ -54,6 +60,17 @@ private class AccountsManagementComponentDependency669d5ec8a455227cbbf2Provider:
 private func factoryd2e351d5572dd753b3a30ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
     return AccountsManagementComponentDependency669d5ec8a455227cbbf2Provider(mainComponent: parent1(component) as! MainComponent)
 }
+private class CreditTermsCreationComponentDependency93ecb1fa42e4268de7cbProvider: CreditTermsCreationComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->CreditTermsCreationComponent
+private func factory537f2bc9a62466ba9213e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return CreditTermsCreationComponentDependency93ecb1fa42e4268de7cbProvider()
+}
 private class AuthenticationComponentDependency1e61ff2125d745c6221dProvider: AuthenticationComponentDependency {
 
 
@@ -64,6 +81,17 @@ private class AuthenticationComponentDependency1e61ff2125d745c6221dProvider: Aut
 /// ^->MainComponent->AuthenticationComponent
 private func factory78cd42ac479e5779494fe3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return AuthenticationComponentDependency1e61ff2125d745c6221dProvider()
+}
+private class LoansOverviewComponentDependencyd1c29950fcc938a14b4fProvider: LoansOverviewComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->LoansOverviewComponent
+private func factoryf13ff2696f28e476698be3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return LoansOverviewComponentDependencyd1c29950fcc938a14b4fProvider()
 }
 private class TransactionsManagementComponentDependency928b87524ecf5e883c98Provider: TransactionsManagementComponentDependency {
 
@@ -87,6 +115,8 @@ extension MainComponent: Registration {
 extension MainScreenRouterComponent: Registration {
     public func registerItems() {
         keyPathToName[\MainScreenRouterComponentDependency.accountsManagementComponent] = "accountsManagementComponent-AccountsManagementComponent"
+        keyPathToName[\MainScreenRouterComponentDependency.creditTermsCreationComponent] = "creditTermsCreationComponent-CreditTermsCreationComponent"
+        keyPathToName[\MainScreenRouterComponentDependency.loansOverviewComponent] = "loansOverviewComponent-LoansOverviewComponent"
     }
 }
 extension RegistrationComponent: Registration {
@@ -99,7 +129,17 @@ extension AccountsManagementComponent: Registration {
         keyPathToName[\AccountsManagementComponentDependency.transactionsManagementComponent] = "transactionsManagementComponent-TransactionsManagementComponent"
     }
 }
+extension CreditTermsCreationComponent: Registration {
+    public func registerItems() {
+
+    }
+}
 extension AuthenticationComponent: Registration {
+    public func registerItems() {
+
+    }
+}
+extension LoansOverviewComponent: Registration {
     public func registerItems() {
 
     }
@@ -129,7 +169,9 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
     registerProviderFactory("^->MainComponent->MainScreenRouterComponent", factory33430430ae8566dba0090ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a880e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->AccountsManagementComponent", factoryd2e351d5572dd753b3a30ae93e637f014511a119)
+    registerProviderFactory("^->MainComponent->CreditTermsCreationComponent", factory537f2bc9a62466ba9213e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->AuthenticationComponent", factory78cd42ac479e5779494fe3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->LoansOverviewComponent", factoryf13ff2696f28e476698be3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->TransactionsManagementComponent", factorybcd967df3bbda91b70eae3b0c44298fc1c149afb)
 }
 #endif
