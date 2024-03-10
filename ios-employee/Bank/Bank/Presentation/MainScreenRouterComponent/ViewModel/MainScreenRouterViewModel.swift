@@ -7,21 +7,27 @@
 
 import Foundation
 
+@Observable
 final class MainScreenRouterViewModel: BaseViewModel {
     private(set) var routes: [Route] = .init()
 
-    override init() {
+    init(
+        accountsManagementComponent: AccountsManagementComponent? = nil
+    ) {
         super.init()
 
-        initRoutes()
+        initRoutes(accountsManagementComponent: accountsManagementComponent)
     }
 
-    private func initRoutes() {
+    private func initRoutes(
+        accountsManagementComponent: AccountsManagementComponent? = nil
+    ) {
         routes = [
             .init(
                 name: R.string.localizable.accountsManagement(),
                 description: R.string.localizable.overviewAndTransactionsHistories(),
-                systemImageName: "list.bullet.rectangle"
+                systemImageName: "list.bullet.rectangle",
+                destination: .init(accountsManagementComponent?.getView())
             ),
             .init(
                 name: R.string.localizable.creditsManagement(),

@@ -45,4 +45,10 @@ extension MainComponent {
             MainScreenRouterComponent(parent: self)
         }
     }
+
+    var accountsManagementComponent: AccountsManagementComponent {
+        shared {
+            AccountsManagementComponent(parent: self)
+        }
+    }
 }

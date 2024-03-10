@@ -17,8 +17,8 @@
 "passwordConfirmation" = "Password confirmation";
 "email" = "Email";
 
-
 // MARK: - Main screen router
+"mainScreen" = "Main screen";
 "accountsManagement" = "Accounts management";
 "overviewAndTransactionsHistories" = "Overview and transactions histories";
 
@@ -35,3 +35,14 @@
 // MARK: - Employees router
 "createEmployee" = "Create employee";
 "deleteEmployee" = "Delete employee";
+
+// MARK: - Accounts management
+"searchByPersonName" = "Search by person name";
+
+"current" = "Current";
+"savings" = "Savings";
+"foreignCurrency" = "Foreign currency";
+
+"active" = "Active";
+"frozen" = "Frozen";
+"closed" = "Closed";

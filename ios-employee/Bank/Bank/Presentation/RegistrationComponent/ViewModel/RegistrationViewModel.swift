@@ -7,6 +7,7 @@
 
 import Foundation
 
+@Observable
 final class RegistrationViewModel: BaseViewModel {
     var username: String = .init()
     var email: String = .init()

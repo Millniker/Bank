@@ -7,6 +7,7 @@
 
 import Foundation
 
+@Observable
 final class AuthenticationViewModel: BaseViewModel {
     var username: String = .init()
     var password: String = .init()

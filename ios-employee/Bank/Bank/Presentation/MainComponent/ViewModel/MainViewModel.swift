@@ -7,6 +7,7 @@
 
 import Foundation
 
+@Observable
 final class MainViewModel: BaseViewModel {
     private(set) var mainScreenRouterView: MainScreenRouterView?
 

@@ -18,15 +18,17 @@ private func parent1(_ component: NeedleFoundation.Scope) -> NeedleFoundation.Sc
 #if !NEEDLE_DYNAMIC
 
 private class MainScreenRouterComponentDependencyd1934decc02019116c04Provider: MainScreenRouterComponentDependency {
-
-
-    init() {
-
+    var accountsManagementComponent: AccountsManagementComponent {
+        return mainComponent.accountsManagementComponent
+    }
+    private let mainComponent: MainComponent
+    init(mainComponent: MainComponent) {
+        self.mainComponent = mainComponent
     }
 }
 /// ^->MainComponent->MainScreenRouterComponent
-private func factory33430430ae8566dba009e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
-    return MainScreenRouterComponentDependencyd1934decc02019116c04Provider()
+private func factory33430430ae8566dba0090ae93e637f014511a119(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return MainScreenRouterComponentDependencyd1934decc02019116c04Provider(mainComponent: parent1(component) as! MainComponent)
 }
 private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: RegistrationComponentDependency {
 
@@ -38,6 +40,17 @@ private class RegistrationComponentDependency45ce06ac0365c929bb6bProvider: Regis
 /// ^->MainComponent->RegistrationComponent
 private func factorybf509de48c6e5261a880e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
     return RegistrationComponentDependency45ce06ac0365c929bb6bProvider()
+}
+private class AccountsManagementComponentDependency669d5ec8a455227cbbf2Provider: AccountsManagementComponentDependency {
+
+
+    init() {
+
+    }
+}
+/// ^->MainComponent->AccountsManagementComponent
+private func factoryd2e351d5572dd753b3a3e3b0c44298fc1c149afb(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return AccountsManagementComponentDependency669d5ec8a455227cbbf2Provider()
 }
 private class AuthenticationComponentDependency1e61ff2125d745c6221dProvider: AuthenticationComponentDependency {
 
@@ -60,10 +73,15 @@ extension MainComponent: Registration {
 }
 extension MainScreenRouterComponent: Registration {
     public func registerItems() {
-
+        keyPathToName[\MainScreenRouterComponentDependency.accountsManagementComponent] = "accountsManagementComponent-AccountsManagementComponent"
     }
 }
 extension RegistrationComponent: Registration {
+    public func registerItems() {
+
+    }
+}
+extension AccountsManagementComponent: Registration {
     public func registerItems() {
 
     }
@@ -90,8 +108,9 @@ private func registerProviderFactory(_ componentPath: String, _ factory: @escapi
 
 @inline(never) private func register1() {
     registerProviderFactory("^->MainComponent", factoryEmptyDependencyProvider)
-    registerProviderFactory("^->MainComponent->MainScreenRouterComponent", factory33430430ae8566dba009e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->MainScreenRouterComponent", factory33430430ae8566dba0090ae93e637f014511a119)
     registerProviderFactory("^->MainComponent->RegistrationComponent", factorybf509de48c6e5261a880e3b0c44298fc1c149afb)
+    registerProviderFactory("^->MainComponent->AccountsManagementComponent", factoryd2e351d5572dd753b3a3e3b0c44298fc1c149afb)
     registerProviderFactory("^->MainComponent->AuthenticationComponent", factory78cd42ac479e5779494fe3b0c44298fc1c149afb)
 }
 #endif

@@ -9,11 +9,15 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-protocol MainScreenRouterComponentDependency: Dependency {}
+protocol MainScreenRouterComponentDependency: Dependency {
+    var accountsManagementComponent: AccountsManagementComponent { get }
+}
 
 final class MainScreenRouterComponent: Component<MainScreenRouterComponentDependency> {
     private func getViewModel() -> MainScreenRouterViewModel {
-        .init()
+        .init(
+            accountsManagementComponent: dependency.accountsManagementComponent
+        )
     }
 
     func getView() -> MainScreenRouterView {

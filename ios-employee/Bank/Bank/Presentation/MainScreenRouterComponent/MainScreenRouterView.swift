@@ -13,6 +13,7 @@ struct MainScreenRouterView: View {
     var body: some View {
         NavigationStack {
             RoutesView(routes: viewModel.routes)
+                .navigationTitle(R.string.localizable.mainScreen())
         }
     }
 }
