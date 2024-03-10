@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "IP6R+L0/umM6UH5cVYRa1OUVRfQJXqNBjTwgYGXdlcZRG3jlN5WG5C36AVj3+uB3dH2t5i7nHRAbP83+e1/DEw==",
+  "success": true,
+  "projectFilePath": "D:\\RiderProjects\\Bank3\\WebApplication1\\CreditService.Common\\CreditService.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nikit\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.16\\microsoft.aspnetcore.openapi.7.0.16.nupkg.sha512",
+    "C:\\Users\\nikit\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  database:
+    container_name: "database"
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 79521831146
+    expose:
+      - "5432"
+    networks:
+      - db-network
+  app:
+    container_name: "app"
+    build: .
+    ports:
+      - "10000:80"
+    environment:
+      - "ConnectionStrings:DefaultConnection=Server=database;Port=5432;Database=credit;Username=postgres;Password=79521831146"
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - database
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    driver: bridge
