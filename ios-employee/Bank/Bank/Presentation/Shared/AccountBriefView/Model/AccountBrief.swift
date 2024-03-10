@@ -8,6 +8,7 @@
 import Foundation
 
 struct AccountBrief: Identifiable, Equatable {
+    let id: Int
     let customerName: String
     let accountNumber: String
     let balance: Decimal
@@ -15,8 +16,4 @@ struct AccountBrief: Identifiable, Equatable {
     let type: DisplayingAccountType
     let status: DisplayingAccountStatus
     let currency: DisplayingCurrencyType
-
-    var id: String {
-        accountNumber
-    }
 }

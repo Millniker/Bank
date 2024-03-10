@@ -7,8 +7,19 @@
 
 import Foundation
 
-enum AccountStatus: String {
+enum AccountStatus: String, Codable {
     case ACTIVE
     case FROZEN
     case CLOSED
+
+    var asDisplayingAccountStatus: DisplayingAccountStatus {
+        switch self {
+        case .ACTIVE:
+            .active
+        case .FROZEN:
+            .frozen
+        case .CLOSED:
+            .closed
+        }
+    }
 }

@@ -51,4 +51,10 @@ extension MainComponent {
             AccountsManagementComponent(parent: self)
         }
     }
+
+    var transactionsManagementComponent: TransactionsManagementComponent {
+        shared {
+            TransactionsManagementComponent(parent: self)
+        }
+    }
 }

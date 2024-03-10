@@ -9,11 +9,15 @@ import Foundation
 import NeedleFoundation
 import SwiftUI
 
-protocol AccountsManagementComponentDependency: Dependency {}
+protocol AccountsManagementComponentDependency: Dependency {
+    var transactionsManagementComponent: TransactionsManagementComponent { get }
+}
 
 final class AccountsManagementComponent: Component<AccountsManagementComponentDependency> {
     private func getViewModel() -> AccountsManagementViewModel {
-        .init()
+        .init(
+            transactionsManagementComponent: dependency.transactionsManagementComponent
+        )
     }
 
     func getView() -> AccountsManagementView {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountBriefView: View {
-    let accountBrief: AccountBrief
+    private let accountBrief: AccountBrief
 
     init(_ accountBrief: AccountBrief) {
         self.accountBrief = accountBrief
@@ -60,9 +60,13 @@ struct AccountBriefView: View {
     }
 
     private var openDateSection: some View {
-        Text(accountBrief.openDate, style: .date)
-            .font(.footnote)
-            .foregroundColor(.gray)
+        HStack(spacing: 3) {
+            Text(accountBrief.openDate, style: .date)
+
+            Text(accountBrief.openDate, style: .time)
+        }
+        .font(.footnote)
+        .foregroundColor(.gray)
     }
 
     private var typeSection: some View {
@@ -80,10 +84,11 @@ struct AccountBriefView: View {
 #Preview {
     AccountBriefView(
         .init(
+            id: 1,
             customerName: "John Doe",
             accountNumber: "1234567890",
             balance: 1000,
-            openDate: Date(),
+            openDate: .now,
             type: .current,
             status: .active,
             currency: .rub

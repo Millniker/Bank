@@ -17,6 +17,10 @@
 "passwordConfirmation" = "Password confirmation";
 "email" = "Email";
 
+"role" = "Role";
+"client" = "Client";
+"employee" = "Employee";
+
 // MARK: - Main screen router
 "mainScreen" = "Main screen";
 "accountsManagement" = "Accounts management";
@@ -46,3 +50,11 @@
 "active" = "Active";
 "frozen" = "Frozen";
 "closed" = "Closed";
+
+// MARK: - Transactions
+"deposit" = "Deposit";
+"withdrawal" = "Withdrawal";
+"transfer" = "Transfer";
+"loanRepayment" = "Loan repayment";
+
+"transactions" = "Transactions";

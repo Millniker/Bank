@@ -14,6 +14,13 @@ struct AccountsManagementView: View {
         List {
             ForEach(viewModel.displayingAccounts) { account in
                 AccountBriefView(account)
+                    .background(
+                        NavigationLink(
+                            "",
+                            destination: viewModel.transactionsManagementView?(account.id)
+                        )
+                        .opacity(0)
+                    )
                     .listRowSeparator(.hidden)
                     .listRowInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
             }
@@ -23,6 +30,9 @@ struct AccountsManagementView: View {
         .scrollContentBackground(.hidden)
         .scrollIndicators(.hidden)
         .searchable(text: $viewModel.searchText, prompt: R.string.localizable.searchByPersonName())
+        .refreshable {
+            viewModel.refreshDisplayingAccounts()
+        }
         .navigationTitle(R.string.localizable.accountsManagement())
         .modifier(DefaultHorizontalPaddingModifier())
     }
