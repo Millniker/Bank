@@ -288,15 +288,31 @@
 		840B23D72B9E107700025827 /* Persistent */ = {
 			isa = PBXGroup;
 			children = (
-				840B23D82B9E108A00025827 /* DataStoreService.swift */,
 				840B23DA2B9E10A000025827 /* DataStoreProtocol.swift */,
 			);
 			path = Persistent;
 			sourceTree = "<group>";
 		};
+		840B23DE2B9E1DBF00025827 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				840B23DF2B9E1DC500025827 /* DataStore */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		840B23DF2B9E1DC500025827 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				840B23D82B9E108A00025827 /* DataStoreService.swift */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
 		841FE6752B9C14A800E153AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				840B23DE2B9E1DBF00025827 /* Services */,
 				841FE6762B9C14CA00E153AC /* Network */,
 			);
 			path = Data;
