@@ -144,9 +144,9 @@ class BaseTextField: UITextField {
 	override open func rightViewRect(forBounds bounds: CGRect) -> CGRect {
 		let offset: CGFloat = Constants.eyeOffset
 		let width: CGFloat  = Constants.eyeSize
-		let height = width
+		let height = width - 4
 		let x = CGFloat(Int(bounds.width) - Int(width) - Int(offset))
-		let y = self.bounds.height / 2 - Constants.eyeSize / 2
+		let y = self.bounds.height / 2 - Constants.eyeSize / 2 + 2
 		let rightViewBounds = CGRect(x: x, y: y, width: width, height: height)
 		return rightViewBounds
 	}
