@@ -15,7 +15,7 @@ import java.time.ZoneOffset
 data class Account(
     val id: Int,
     val accountNumber: String,
-    val customerId: Int,
+    val userId: String,
     @Serializable(with = BigDecimalSerializer::class) val balance: BigDecimal,
     val currencyType: CurrencyType,
     val accountType: AccountType,

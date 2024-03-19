@@ -14,4 +14,14 @@ services:
       MYSQL_PASSWORD: 'rAgM@!_2?t(JC$2'
       MYSQL_ROOT_PASSWORD: 'rAgM@!_2?t(JC$2'
     ports:
-      - "3307:3306"
+      - "3306:3306"
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "./rabbitmq_data:/var/lib/rabbitmq"
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password

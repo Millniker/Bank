@@ -1,25 +1,24 @@
 package com.example.presentation
 
-import com.example.presentation.dto.CreateAccountDTO
 import com.example.domain.models.Money
 import com.example.domain.services.AccountService
-import com.example.domain.services.CustomerService
+import com.example.domain.services.TransactionFlow
 import com.example.domain.services.TransactionService
-import com.example.presentation.dto.CustomerAccountCreationDTO
-import com.example.presentation.dto.DepositDTO
-import com.example.presentation.dto.NewCustomerDTO
-import com.example.presentation.dto.WithdrawDTO
+import com.example.presentation.dto.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
+import io.ktor.websocket.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
     routing {
         val accountService: AccountService by inject()
-        val customerService: CustomerService by inject()
         val transactionService: TransactionService by inject()
 
         route("/client") {
@@ -29,50 +28,32 @@ fun Application.configureRouting() {
                     ?: return@get call.respond(HttpStatusCode.BadRequest, "Invalid account ID")
 
                 val account = accountService.getAccountById(accountId)
-                    ?: return@get call.respond(HttpStatusCode.NotFound, "Account not found")
 
                 call.respond(account)
             }
 
-            get("/customer/by-account/{accountId}") {
+            get("/userId/by-account/{accountId}") {
                 val accountId = call.parameters["accountId"]?.toIntOrNull()
                     ?: return@get call.respond(HttpStatusCode.BadRequest, "Invalid account ID")
 
-                val customer = customerService.getCustomerByAccountId(accountId)
+                val account = accountService.getAccountById(accountId)
 
-                call.respond(customer)
-            }
-
-            post("/createCustomer") {
-                val newCustomerDTO = call.receive<NewCustomerDTO>()
-
-                val customer = customerService.createCustomer(newCustomerDTO.toCustomer())
-
-                call.respond(HttpStatusCode.Created, customer)
+                call.respond(UserInfoDto(userId = account.userId))
             }
 
             post("/openAccount") {
                 val userId = call.parameters["userId"]?.toString()
                     ?: return@post call.respond(HttpStatusCode.BadRequest, "Invalid user ID")
 
+                // Здесь должна быть проверка на то, что такой юзер существует
+
                 val newAccountDTO = call.receive<CreateAccountDTO>()
 
-                val account = accountService.openAccount(customerService.getCustomerByUserId(userId).id, newAccountDTO)
+                val account = accountService.openAccount(userId, newAccountDTO)
 
                 call.respond(HttpStatusCode.Created, account)
             }
 
-            post("/createAccountWithNewCustomer") {
-                val customerAccountCreationDTO = call.receive<CustomerAccountCreationDTO>()
-                val newCustomerDTO = customerAccountCreationDTO.customer
-                val newAccountDTO = customerAccountCreationDTO.account
-
-                val customer = customerService.createCustomer(newCustomerDTO.toCustomer())
-
-                val account = accountService.openAccount(customer.id, newAccountDTO)
-
-                call.respond(HttpStatusCode.Created, account)
-            }
 
             post("/closeAccount/{accountId}") {
                 val accountId = call.parameters["accountId"]?.toIntOrNull()
@@ -96,6 +77,36 @@ fun Application.configureRouting() {
                 call.respond(HttpStatusCode.OK, "Withdrawal successful")
             }
 
+            post("/transfer") {
+                val transferRequest = try {
+                    call.receive<TransferRequestDTO>()
+                } catch (e: Exception) {
+                    return@post call.respond(HttpStatusCode.BadRequest, "Invalid request")
+                }
+                accountService.transfer(
+                    fromAccountId = transferRequest.fromAccountId,
+                    toAccountId = transferRequest.toAccountId,
+                    money = Money(
+                        amount = transferRequest.amount,
+                        currencyType = transferRequest.currencyType
+                    ),
+                )
+            }
+
+            webSocket("/transactions/{accountId}") {
+                val accountId = call.parameters["accountId"]?.toIntOrNull() ?: return@webSocket close()
+
+                val initialTransactions = transactionService.getAccountTransactions(accountId)
+                send(Frame.Text(Json.encodeToString(initialTransactions)))
+
+
+                TransactionFlow.getTransactionsFlowForAccount(accountId).collect {
+                    val updatedTransactions = transactionService.getAccountTransactions(accountId)
+                    send(Frame.Text(Json.encodeToString(updatedTransactions)))
+                }
+
+            }
+
             get("/transactions/{accountId}") {
                 val accountId = call.parameters["accountId"]?.toIntOrNull()
                     ?: return@get call.respond(HttpStatusCode.BadRequest, "Invalid account ID")
@@ -107,13 +118,13 @@ fun Application.configureRouting() {
 
         route("/employee") {
             get("/accounts") {
-                val accounts = customerService.getAllAccounts()
+                val accounts = accountService.getAllAccounts()
                 call.respond(HttpStatusCode.OK, accounts)
             }
 
-            get("/customers") {
-                val customers = customerService.getAllCustomers()
-                call.respond(customers)
+            get("/users") {
+                val users = accountService.getAllUniqueUsersWithAccount()
+                call.respond(HttpStatusCode.OK, users)
             }
 
             get("/account/{accountId}/transactions") {

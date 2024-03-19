@@ -1,7 +1,6 @@
 package com.example
 
 import com.example.data.entities.Accounts
-import com.example.data.entities.Customers
 import com.example.data.entities.Transactions
 import io.ktor.server.application.*
 import io.ktor.server.config.*
@@ -18,6 +17,6 @@ fun Application.initDatabase(appConfig: HoconApplicationConfig) {
     Database.connect(url, driver, user, password)
 
     transaction {
-        SchemaUtils.create(Customers, Accounts, Transactions)
+        SchemaUtils.create(Accounts, Transactions)
     }
 }

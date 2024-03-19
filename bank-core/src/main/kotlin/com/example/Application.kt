@@ -19,6 +19,7 @@ fun Application.module() {
 
     installKoin()
     installExceptionHandling()
+    installWebsockets()
     configureRouting()
     configureSerialization()
     initDatabase(appConfig)

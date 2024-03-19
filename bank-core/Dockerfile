@@ -1,22 +1,10 @@
-# Указание базового образа для этапа сборки
-FROM openjdk:11-jdk-slim as build
-WORKDIR /app
+FROM gradle:8-jdk11 AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle buildFatJar --no-daemon
 
-# Копирование файлов проекта в рабочую директорию
-COPY . ./
-
-# Предварительная загрузка зависимостей для ускорения последующих сборок
-RUN ./gradlew --no-daemon dependencies
-
-# Сборка приложения
-RUN ./gradlew --no-daemon build
-
-# Новый этап сборки для создания финального образа
-FROM openjdk:11-jre-slim
-WORKDIR /app
-
-# Копирование собранного исполняемого JAR файла в финальный образ
-COPY --from=build /app/build/libs/*.jar /app/app.jar
-
-# Команда для запуска приложения
-CMD ["java", "-jar", "/app/app.jar"]
+FROM openjdk:11
+EXPOSE 8080:8080
+RUN mkdir /app
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-docker-sample.jar
+ENTRYPOINT ["java","-jar","/app/ktor-docker-sample.jar"]

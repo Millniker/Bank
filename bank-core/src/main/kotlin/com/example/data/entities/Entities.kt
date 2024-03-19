@@ -7,7 +7,7 @@ import org.jetbrains.exposed.sql.javatime.datetime
 
 object Accounts : IntIdTable() {
     val accountNumber = varchar("account_number", length = 255)
-    val customer = reference("customer_id", Customers)
+    val userId = varchar("user_id", length = 36)
     val balance = decimal("balance", precision = 10, scale = 2)
     val currencyType = enumerationByName("currency_type", 10, CurrencyType::class)
     val accountType = enumerationByName("account_type", 30, AccountType::class)
@@ -22,14 +22,6 @@ object Transactions : IntIdTable() {
     val toAccount = reference("to_account_id", Accounts).nullable()
     val transactionType = enumerationByName("transaction_type", 20, TransactionType::class)
     val transactionDate = datetime("transaction_date").defaultExpression(CurrentDateTime)
-}
-
-object Customers : IntIdTable() {
-    val fullName = varchar("full_name", length = 255)
-    val dateOfBirth = date("date_of_birth")
-    val passportDetails = varchar("passport_details", length = 255)
-    val registrationDate = datetime("registration_date").defaultExpression(CurrentDateTime)
-    val userId = varchar("user_id", length = 36)
 }
 
 enum class TransactionType {

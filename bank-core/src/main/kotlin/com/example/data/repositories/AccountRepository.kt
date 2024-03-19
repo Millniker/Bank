@@ -4,11 +4,10 @@ import com.example.data.entities.AccountStatus
 import com.example.data.entities.Accounts
 import com.example.domain.models.Account
 import com.example.domain.repositories.IAccountRepository
-import com.example.domain.utils.secondsToLocalDateTime
+import com.example.presentation.dto.UserInfoDto
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.math.BigDecimal
-import java.time.ZoneOffset
 
 class AccountRepository : IAccountRepository {
 
@@ -18,11 +17,11 @@ class AccountRepository : IAccountRepository {
             .singleOrNull()
     }
 
-    override fun createAccount(newAccount: Account, customerId: Int): Account = transaction {
+    override fun createAccount(newAccount: Account): Account = transaction {
         val insertedId = Accounts.insert {
             it[accountNumber] = newAccount.accountNumber
             it[balance] = newAccount.balance
-            it[customer] = customerId
+            it[userId] = newAccount.userId
             it[currencyType] = newAccount.currencyType
             it[accountType] = newAccount.accountType
             it[accountStatus] = newAccount.accountStatus
@@ -65,8 +64,16 @@ class AccountRepository : IAccountRepository {
         Accounts.selectAll().map { toAccount(it) }
     }
 
-    override fun getAccountsByCustomerId(customerId: Int): List<Account> = transaction {
-        Accounts.select { Accounts.customer eq customerId }
+    override fun getAllUserIdsWithAccount(): List<UserInfoDto> = transaction {
+        Accounts.slice(Accounts.userId)
+            .selectAll()
+            .map { it[Accounts.userId] }
+            .distinct()
+            .map { UserInfoDto(it) }
+    }
+
+    override fun getAccountsByUserId(userId: String): List<Account> = transaction {
+        Accounts.select { Accounts.userId eq userId }
             .map { toAccount(it) }
     }
 
@@ -80,6 +87,6 @@ class AccountRepository : IAccountRepository {
             accountStatus = row[Accounts.accountStatus],
             openingDate = row[Accounts.openingDate],
             interestRate = row[Accounts.interestRate],
-            customerId = row[Accounts.customer].value
+            userId = row[Accounts.userId]
         )
 }

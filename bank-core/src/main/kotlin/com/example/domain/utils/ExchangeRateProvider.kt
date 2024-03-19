@@ -1,28 +1,53 @@
 package com.example.domain.utils
 
 import com.example.data.entities.CurrencyType
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.double
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import java.math.BigDecimal
 import java.math.RoundingMode
-import kotlin.random.Random
 
 object ExchangeRateProvider {
-    fun getExchangeRate(from: CurrencyType, to: CurrencyType): BigDecimal {
+    private val ratesCache = mutableMapOf<Pair<CurrencyType, CurrencyType>, BigDecimal>()
+
+    suspend fun getExchangeRate(from: CurrencyType, to: CurrencyType): BigDecimal {
         if (from == to) {
             return BigDecimal.ONE
         }
 
-        return when (from to to) {
-            CurrencyType.USD to CurrencyType.EUR -> randomRate(0.8, 0.9)
-            CurrencyType.EUR to CurrencyType.USD -> randomRate(1.1, 1.2)
-            CurrencyType.USD to CurrencyType.RUB -> randomRate(70.0, 80.0)
-            CurrencyType.RUB to CurrencyType.USD -> randomRate(0.012, 0.014)
-            CurrencyType.EUR to CurrencyType.RUB -> randomRate(80.0, 90.0)
-            CurrencyType.RUB to CurrencyType.EUR -> randomRate(0.01, 0.011)
-            else -> BigDecimal.ONE
-        }
+        val rateKey = from to to
+
+        ratesCache[rateKey]?.let { return it }
+
+        val rates = getExchangeRates(from.name)
+        val rate = rates[to.name]?.toBigDecimal()?.setScale(2, RoundingMode.HALF_EVEN)
+            ?: return BigDecimal.ONE
+
+        ratesCache[rateKey] = rate
+        return rate
     }
 
-    private fun randomRate(min: Double, max: Double): BigDecimal {
-        return BigDecimal(Random.nextDouble(min, max)).setScale(2, RoundingMode.HALF_EVEN)
+    private suspend fun getExchangeRates(baseCurrency: String): Map<String, Double> {
+        val client = HttpClient(CIO)
+        val apiKey = " a20657ca3bef442b590d3776"
+        val url = "https://v6.exchangerate-api.com/v6/$apiKey/latest/$baseCurrency"
+        val conversionRatesPropertyName = "conversion_rates"
+
+        try {
+            val response: HttpResponse = client.get(url)
+            val jsonResponse = Json.parseToJsonElement(response.bodyAsText()).jsonObject
+            val ratesJsonObject = jsonResponse[conversionRatesPropertyName]!!.jsonObject
+            return ratesJsonObject.mapValues { it.value.jsonPrimitive.double }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return emptyMap()
+        } finally {
+            client.close()
+        }
     }
 }
