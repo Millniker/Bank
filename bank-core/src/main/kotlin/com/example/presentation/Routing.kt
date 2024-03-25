@@ -7,11 +7,15 @@ import com.example.domain.services.TransactionService
 import com.example.presentation.dto.*
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.http.content.*
+import io.ktor.server.plugins.openapi.*
+import io.ktor.server.plugins.swagger.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
 import io.ktor.websocket.*
+import io.swagger.codegen.v3.generators.html.StaticHtmlCodegen
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.koin.ktor.ext.inject
@@ -20,6 +24,13 @@ fun Application.configureRouting() {
     routing {
         val accountService: AccountService by inject()
         val transactionService: TransactionService by inject()
+
+        swaggerUI(path = "swagger", swaggerFile = "documentation.yaml") {
+            version = "4.15.5"
+        }
+        openAPI(path="openapi", swaggerFile = "documentation.yaml") {
+            codegen = StaticHtmlCodegen()
+        }
 
         route("/client") {
 
@@ -41,16 +52,12 @@ fun Application.configureRouting() {
                 call.respond(UserInfoDto(userId = account.userId))
             }
 
-            post("/openAccount") {
-                val userId = call.parameters["userId"]?.toString()
+            post("/openAccount/{userId}") {
+                val userId = call.parameters["userId"]
                     ?: return@post call.respond(HttpStatusCode.BadRequest, "Invalid user ID")
 
-                // Здесь должна быть проверка на то, что такой юзер существует
-
                 val newAccountDTO = call.receive<CreateAccountDTO>()
-
                 val account = accountService.openAccount(userId, newAccountDTO)
-
                 call.respond(HttpStatusCode.Created, account)
             }
 
@@ -91,6 +98,7 @@ fun Application.configureRouting() {
                         currencyType = transferRequest.currencyType
                     ),
                 )
+                call.respond(HttpStatusCode.OK, "Transfer successful")
             }
 
             webSocket("/transactions/{accountId}") {

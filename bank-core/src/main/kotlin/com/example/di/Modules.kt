@@ -17,14 +17,6 @@ import org.koin.dsl.module
 val appModule = module {
     single<IAccountRepository> { AccountRepository() }
     single<ITransactionRepository> { TransactionRepository() }
-    single {
-        val factory = ConnectionFactory()
-        factory.host = "localhost"
-        factory.newConnection()
-    }
-    single { get<Connection>().createChannel() }
-    single { RabbitMqPublisher(get()) }
-    single { RabbitMqConsumer(get()) }
-    single { AccountService(get(), get()) }
-    single { TransactionService(get(), get(), get()) }
+    single { AccountService(get()) }
+    single { TransactionService(get(), get()) }
 }

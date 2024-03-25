@@ -20,6 +20,7 @@ class TransactionRepository: ITransactionRepository {
             it[toAccount] = newTransaction.toAccountId
             it[transactionType] = newTransaction.transactionType
             it[transactionDate] = newTransaction.transactionDate
+            it[currencyType] = newTransaction.currencyType
         } get Transactions.id
 
         getTransactionById(transactionId.value)!!
@@ -43,6 +44,7 @@ class TransactionRepository: ITransactionRepository {
             fromAccountId = row[Transactions.fromAccount]?.value,
             toAccountId = row[Transactions.toAccount]?.value,
             transactionType = row[Transactions.transactionType],
-            transactionDate = row[Transactions.transactionDate]
+            transactionDate = row[Transactions.transactionDate],
+            currencyType = row[Transactions.currencyType]
         )
 }

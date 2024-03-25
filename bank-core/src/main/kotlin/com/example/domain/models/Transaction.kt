@@ -1,5 +1,6 @@
 package com.example.domain.models
 
+import com.example.data.entities.CurrencyType
 import com.example.data.entities.TransactionType
 import com.example.domain.utils.BigDecimalSerializer
 import com.example.domain.utils.LocalDateTimeSerializer
@@ -17,4 +18,5 @@ data class Transaction(
     val toAccountId: Int?,
     val transactionType: TransactionType,
     @Serializable(with = LocalDateTimeSerializer::class) val transactionDate: LocalDateTime = LocalDateTime.now(),
+    val currencyType: CurrencyType
 )

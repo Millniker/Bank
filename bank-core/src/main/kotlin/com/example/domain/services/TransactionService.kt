@@ -5,10 +5,12 @@ import com.example.common.applicationScope
 import com.example.data.entities.TransactionType
 import com.example.domain.exceptions.AccountNotFoundException
 import com.example.domain.exceptions.InsufficientFundsException
+import com.example.domain.models.Money
 import com.example.domain.models.Transaction
 import com.example.domain.rabbitMq.RabbitMqConsumer
 import com.example.domain.repositories.IAccountRepository
 import com.example.domain.repositories.ITransactionRepository
+import com.example.domain.utils.ExchangeRateProvider
 import com.example.domain.utils.JsonUtil
 import kotlinx.coroutines.launch
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -17,21 +19,20 @@ import java.math.BigDecimal
 class TransactionService(
     private val transactionRepository: ITransactionRepository,
     private val accountRepository: IAccountRepository,
-    private val rabbitMqConsumer: RabbitMqConsumer,
 ) {
 
     init {
-        rabbitMqConsumer.consumeMessages(Constants.TRANSACTION_QUEUE) { message ->
+        RabbitMqConsumer.consumeMessages(Constants.TRANSACTION_QUEUE) { message ->
             handleTransactionMessage(message)
         }
     }
 
-    private fun handleTransactionMessage(message: String) {
+    private suspend fun handleTransactionMessage(message: String) {
         val transactionInfo = JsonUtil.deserializeTransaction(message)
         processTransaction(transactionInfo)
     }
 
-    private fun processTransaction(transactionInfo: Transaction) {
+    private suspend fun processTransaction(transactionInfo: Transaction) {
         when (transactionInfo.transactionType) {
             TransactionType.DEPOSIT -> handleDeposit(transactionInfo)
             TransactionType.WITHDRAWAL -> handleWithdrawal(transactionInfo)
@@ -73,25 +74,39 @@ class TransactionService(
         }
     }
 
-    private fun handleTransfer(transactionInfo: Transaction) {
-        transaction {
+    private suspend fun handleTransfer(transactionInfo: Transaction) {
             val fromAccount = accountRepository.getAccountById(transactionInfo.fromAccountId!!)
-                ?: throw AccountNotFoundException("Account with ID ${transactionInfo.toAccountId} not found")
+                ?: throw AccountNotFoundException("Account with ID ${transactionInfo.fromAccountId} not found")
             val toAccount = accountRepository.getAccountById(transactionInfo.toAccountId!!)
                 ?: throw AccountNotFoundException("Account with ID ${transactionInfo.toAccountId} not found")
 
-            val newBalanceFrom = fromAccount.balance.subtract(transactionInfo.amount)
-            if (newBalanceFrom < BigDecimal.ZERO) {
+            val moneyFrom = Money(transactionInfo.amount, fromAccount.currencyType)
+
+            val exchangeRateTo =
+                ExchangeRateProvider.getExchangeRate(fromAccount.currencyType, toAccount.currencyType)
+            val convertedMoneyTo = moneyFrom.convertTo(toAccount.currencyType, exchangeRateTo)
+
+            if (fromAccount.balance < convertedMoneyTo.amount) {
                 throw InsufficientFundsException("Insufficient funds for transfer")
             }
 
-            val newBalanceTo = toAccount.balance.add(transactionInfo.amount)
+            val newBalanceFrom = fromAccount.balance.subtract(convertedMoneyTo.amount)
+            val newBalanceTo = toAccount.balance.add(convertedMoneyTo.amount)
 
+        transaction {
             accountRepository.updateBalance(transactionInfo.fromAccountId, newBalanceFrom)
             accountRepository.updateBalance(transactionInfo.toAccountId, newBalanceTo)
 
+            // Создание транзакции с обновленными данными
             transactionRepository.createTransaction(
-                transactionInfo
+                Transaction(
+                    id = 0, // временный ID
+                    amount = convertedMoneyTo.amount,
+                    currencyType = toAccount.currencyType,
+                    fromAccountId = transactionInfo.fromAccountId,
+                    toAccountId = transactionInfo.toAccountId,
+                    transactionType = TransactionType.TRANSFER,
+                )
             )
             applicationScope.launch {
                 TransactionFlow.emit(transactionInfo)

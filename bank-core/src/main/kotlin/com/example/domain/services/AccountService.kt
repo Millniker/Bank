@@ -22,7 +22,6 @@ import java.util.*
 
 class AccountService(
     private val accountRepository: IAccountRepository,
-    private val rabbitMqPublisher: RabbitMqPublisher,
 ) {
     fun openAccount(userId: String, createAccountDTO: CreateAccountDTO): Account {
         validateAccountData(createAccountDTO)
@@ -66,10 +65,11 @@ class AccountService(
             fromAccountId = null,
             toAccountId = accountId,
             transactionType = TransactionType.DEPOSIT,
+            currencyType = money.currencyType
         )
 
         val transactionJson = JsonUtil.serializeTransaction(transaction)
-        rabbitMqPublisher.publishMessage(Constants.TRANSACTION_QUEUE, transactionJson)
+        RabbitMqPublisher.publishMessage(Constants.TRANSACTION_QUEUE, transactionJson)
     }
 
     suspend fun withdraw(accountId: Int, money: Money) {
@@ -89,15 +89,16 @@ class AccountService(
         }
 
         val transaction = Transaction(
-            id = 0, // временный ID
+            id = 0,
             amount = convertedAmount,
             fromAccountId = accountId,
             toAccountId = null,
             transactionType = TransactionType.WITHDRAWAL,
+            currencyType = money.currencyType
         )
 
         val transactionJson = JsonUtil.serializeTransaction(transaction)
-        rabbitMqPublisher.publishMessage("transactionQueue", transactionJson)
+        RabbitMqPublisher.publishMessage("transactionQueue", transactionJson)
     }
 
     suspend fun transfer(fromAccountId: Int, toAccountId: Int, money: Money) {
@@ -128,10 +129,11 @@ class AccountService(
             fromAccountId = fromAccountId,
             toAccountId = toAccountId,
             transactionType = TransactionType.TRANSFER,
+            currencyType = money.currencyType
         )
 
         val transactionJson = JsonUtil.serializeTransaction(transaction)
-        rabbitMqPublisher.publishMessage("transactionQueue", transactionJson)
+        RabbitMqPublisher.publishMessage("transactionQueue", transactionJson)
     }
 
     fun getAccountById(accountId: Int): Account {
