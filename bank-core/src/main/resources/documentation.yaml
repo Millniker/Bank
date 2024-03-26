@@ -145,6 +145,26 @@ paths:
                   $ref: '#/components/schemas/Transaction'
         '400':
           description: Invalid account ID
+  /client/accounts/{userId}:
+    post:
+      summary: Get accounts for a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of user accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+        '400':
+          description: Invalid user ID
   /employee/accounts:
     get:
       summary: Get a list of all accounts
@@ -198,14 +218,25 @@ components:
       properties:
         id:
           type: integer
+        accountNumber:
+          type: string
+        userId:
+          type: string
         balance:
           type: number
+          format: float
         currencyType:
-          type: string
+          $ref: '#/components/schemas/CurrencyType'
         accountType:
+          $ref: '#/components/schemas/AccountType'
+        accountStatus:
+          $ref: '#/components/schemas/AccountStatus'
+        openingDate:
           type: string
+          format: date-time
         interestRate:
           type: number
+          format: float
     UserInfoDto:
       type: object
       properties:
@@ -217,9 +248,9 @@ components:
         initialDeposit:
           type: number
         currencyType:
-          type: string
+          $ref: '#/components/schemas/CurrencyType'
         accountType:
-          type: string
+          $ref: '#/components/schemas/AccountType'
         interestRate:
           type: number
     DepositDTO:
@@ -230,8 +261,7 @@ components:
         amount:
           type: number
         currencyType:
-          type: string
-
+          $ref: '#/components/schemas/CurrencyType'
     WithdrawDTO:
       type: object
       properties:
@@ -240,8 +270,7 @@ components:
         amount:
           type: number
         currencyType:
-          type: string
-
+          $ref: '#/components/schemas/CurrencyType'
     TransferRequestDTO:
       type: object
       properties:
@@ -252,8 +281,7 @@ components:
         amount:
           type: number
         currencyType:
-          type: string
-
+          $ref: '#/components/schemas/CurrencyType'
     Transaction:
       type: object
       properties:
@@ -266,6 +294,19 @@ components:
         toAccountId:
           type: integer
         transactionType:
-          type: string
+          $ref: '#/components/schemas/TransactionType'
         currencyType:
-          type: string
+          $ref: '#/components/schemas/CurrencyType'
+
+  CurrencyType:
+    type: string
+    enum: [USD, EUR, RUB]
+  AccountStatus:
+    type: string
+    enum: [ACTIVE, FROZEN, CLOSED]
+  AccountType:
+    type: string
+    enum: [CURRENT_ACCOUNT, SAVINGS_ACCOUNT, FOREIGN_CURRENCY_ACCOUNT, LOAN_TYPE]
+  TransactionType:
+    type: string
+    enum: [DEPOSIT, WITHDRAWAL, TRANSFER, LOAN_REPAYMENT]

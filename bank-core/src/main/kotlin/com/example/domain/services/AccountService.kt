@@ -141,6 +141,10 @@ class AccountService(
             ?: throw AccountNotFoundException("Account with ID $accountId not found")
     }
 
+    fun getAccountsByUserId(userId: String): List<Account> {
+        return accountRepository.getAccountsByUserId(userId)
+    }
+
     fun getAllUniqueUsersWithAccount ():  List<UserInfoDto> {
         return accountRepository.getAllUserIdsWithAccount()
     }

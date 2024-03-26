@@ -122,6 +122,14 @@ fun Application.configureRouting() {
                 val transactions = transactionService.getAccountTransactions(accountId)
                 call.respond(HttpStatusCode.OK, transactions)
             }
+
+            post("/accounts/{userId}") {
+                val userId = call.parameters["userId"]
+                    ?: return@post call.respond(HttpStatusCode.BadRequest, "Invalid user ID")
+
+                val accounts = accountService.getAccountsByUserId(userId)
+                call.respond(HttpStatusCode.Created, accounts)
+            }
         }
 
         route("/employee") {
