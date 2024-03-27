@@ -146,7 +146,7 @@ paths:
         '400':
           description: Invalid account ID
   /client/accounts/{userId}:
-    post:
+    get:
       summary: Get accounts for a user
       parameters:
         - name: userId
@@ -297,16 +297,15 @@ components:
           $ref: '#/components/schemas/TransactionType'
         currencyType:
           $ref: '#/components/schemas/CurrencyType'
-
-  CurrencyType:
-    type: string
-    enum: [USD, EUR, RUB]
-  AccountStatus:
-    type: string
-    enum: [ACTIVE, FROZEN, CLOSED]
-  AccountType:
-    type: string
-    enum: [CURRENT_ACCOUNT, SAVINGS_ACCOUNT, FOREIGN_CURRENCY_ACCOUNT, LOAN_TYPE]
-  TransactionType:
-    type: string
-    enum: [DEPOSIT, WITHDRAWAL, TRANSFER, LOAN_REPAYMENT]
+    CurrencyType:
+      type: string
+      enum: [ USD, EUR, RUB ]
+    AccountStatus:
+      type: string
+      enum: [ ACTIVE, FROZEN, CLOSED ]
+    AccountType:
+      type: string
+      enum: [ CURRENT_ACCOUNT, SAVINGS_ACCOUNT, FOREIGN_CURRENCY_ACCOUNT, LOAN_TYPE ]
+    TransactionType:
+      type: string
+      enum: [ DEPOSIT, WITHDRAWAL, TRANSFER, LOAN_REPAYMENT ]
